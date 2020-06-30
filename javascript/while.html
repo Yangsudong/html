@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript/while.html</title>
+</head>
+
+<body>
+    <script>
+        var num = 6;
+              if (null)
+            console.log("5보다 크다.");
+        else
+            console.log("5보다 작다.");
+
+        while (num) {
+            document.write('num값은' + num-- + '입니다.<br>');
+            if (num < 6)
+                break;
+        }
+        function gugudan(dan) {
+            var i = 1;
+            while (dan) {
+                    document.write(dan + "X" + i + "=" + (dan * i) + '<br>');
+                    i++;
+                    if (i > 9)
+                        return;
+                }
+            }
+                var nu = 2;
+            while(nu) {
+                gugudan(nu++);
+                document.write("<br>");
+                if(nu > 9)
+                    break;
+            
+        }
+    </script>
+</body>
+
+</html>
