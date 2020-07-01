@@ -5,41 +5,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>javascript/calender.html</title>
-    <script src="calendar.js"></script>
+    <!-- <script src="calendar.js"></script> -->
 </head>
 
 <body>
     <p id="cal"></p>
+    <button onclick="showCalendar()">showCal</button>
     <script>
-        var dayAry = ['일', '월', '화', '수', '목', '금', '토'];
-        var $table = document.createElement('table');
-        $table.setAttribute('border', '1');
-        var $tr = document.createElement('tr');
+        function showCalendar() {
+            var dayAry = ['일', '월', '화', '수', '목', '금', '토'];
+            var $table = document.createElement('table');
+            $table.setAttribute('border', '1');
+            var $tr = document.createElement('tr');
 
-        for (var i = 0; i < dayAry.length; i++) {
-            var $th = document.createElement('th');
-            var $text = document.createTextNode(dayAry[i]);
-            $th.appendChild($text);
-            $tr.appendChild($th);
-        }
-        $table.appendChild($tr);
-        $tr = document.createElement('tr');
-        for (var i = 0; i < 30; i++) {
-            var $text = document.createTextNode(i + 1);
-            var $td = document.createElement('td');
-            $td.appendChild($text);
-            $tr.appendChild($td);
-            if (i % 7 == 0) {
-                $td.setAttribute('style', 'background-color:lightblue');
+            for (var i = 0; i < dayAry.length; i++) {
+                var $th = document.createElement('th');
+                var $text = document.createTextNode(dayAry[i]);
+                $th.appendChild($text);
+                $tr.appendChild($th);
             }
-            if (i % 7 == 6) {
-                $td.setAttribute('style', 'background-color:lightred;');
-                $table.appendChild($tr);
-                $tr = document.createElement('tr');
+            $table.appendChild($tr);
+            $tr = document.createElement('tr');
+            for (var i = 0; i < 30; i++) {
+                var $text = document.createTextNode(i + 1);
+                var $td = document.createElement('td');
+                $td.appendChild($text);
+                $tr.appendChild($td);
+                if (i % 7 == 0) {
+                    $td.setAttribute('style', 'background-color:lightblue');
+                }
+                if (i % 7 == 6) {
+                    $td.setAttribute('style', 'background-color:lightred;');
+                    $table.appendChild($tr);
+                    $tr = document.createElement('tr');
+                }
             }
+            $table.appendChild($tr);
+            document.getElementById("cal").appendChild($table);
         }
-        $table.appendChild($tr);
-        document.getElementById("cal").appendChild($table);
     </script>
 
 </body>

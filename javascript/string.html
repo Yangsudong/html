@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript/string.html</title>
+</head>
+<body>
+    <script>
+        var str = "Hello";      // typeof str -> string;
+        var str2 = new String("Hello");
+        console.log(str == str2);   // '==' 값을비교
+        console.log(str === str2);  // '===' 타입을 비교
+
+        str = 'locate Please locate where "locate" occurs!';
+        console.log(str.indexOf('locate'));     // 값을 찾는데 첫 위치를 찾음
+        console.log(str.lastIndexOf('locate')); // 값을 찾는데 가장 마지막에 있는 단어의 첫번째 자리를 찾음
+        console.log(str.indexOf('locate', 10)); // 10번째 자리부터 찾기 시작하라는 뜻 
+        console.log(str.search('locate'));      // indexOf와 같음
+
+        var result = str.slice(7,12);   // substring, substr
+        document.write('<b>' + result + '</b><br>');
+
+        var result = str.substr(7,13);   // 7번째 부터 13자리를 잘라옴
+        document.write('<h1>' + result + '</h1>');
+
+        // result = str.replace('locate', 'rocate');
+        result = str.replace(/locate/g, 'rocate');
+        console.log(result);
+
+        str = 'locate Please locate where "locate" occurs!';
+
+        result = str.toLowerCase();
+        // console.log(result);
+        result = str.toUpperCase();
+
+        result = "Hello".concat(" World!", " Welcome");
+        console.log(result);
+
+        var sp = "banana, orange, apple".split(",");    // split은 구분을 지어준다 ','를 기준으로 구분한다
+        for( var i=0; i<sp.length; i++) {
+            document.write(sp[i] + '<br>');
+        }
+        
+        // java에서 확장 for문
+        for (i of sp) {
+            console.log(i);
+        }
+
+    </script>
+</body>
+</html>

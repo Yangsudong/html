@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript/arraySort.html</title>
+</head>
+<body>
+    <script>
+        var persons = [];       
+        var person1 = {
+            firstName: 'Kilding',
+            lastName: 'Hong',
+            age: 20
+        }
+        var person2 = {
+            firstName: 'Minke',
+            lastName: 'Hwang',
+            age: 25
+        }
+        var person3 = {
+            firstName: 'Songmi',
+            lastName: 'Park',
+            age: 15
+        }
+        var persons = ['hong', 'park', 'hwang', 'kim'];
+        persons = [20, 12, 1, 100, 10];
+        persons.sort(function(a,b) {
+            return a - b; // a-b : 오름차순, b-a : 내림차순
+        });
+        for(person of persons) {
+            document.write("<p>" + person + "<p>");
+        }
+
+        persons = [person1, person2, person3];
+        // a b c d e f g h i j k l m n o p q r s t u 
+        persons.sort(function(a,b) {
+            if(a.firstName > b.firstName)   // 이름 순
+                return 1;
+            else if(a.firstName < b.firstName) 
+                return -1;
+            else 
+                return 0;
+        });
+
+        for(person of persons) { 
+            document.write("<p>" + person.firstName + ", "
+                                 + person.age + "</p>");
+        }
+
+        document.write("================================")
+
+        persons.sort(function(a,b) {
+            if(a.age > b.age)   // 나이가 어린순 
+                return 1;
+            else if(a.age < b.age) 
+                return -1;
+            else 
+                return 0;
+            // return a.age - b.age;
+        });
+
+        for(person of persons) {
+            document.write("<p>" + person.firstName + ", "
+                                 + person.age + "</p>");
+        }
+
+    </script>
+</body>
+</html>
