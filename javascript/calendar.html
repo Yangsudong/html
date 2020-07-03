@@ -10,21 +10,23 @@
 
 <body>
     <p id="cal"></p>
-    <button onclick="showCalendar(2020,7)">showCal</button>
+    년도 : <input type="text" id="year"><br>
+    월 : <input type="text" id="month"><br>
+    <button onclick="showCalendar()">showCal</button>
     <script>
-        function showCalendar(year, month) {
-
-            var today = new Date(year, month-1, 1); 
+        function showCalendar() {
+            var year = document.getElementById("year").value;
+            var month = document.getElementById("month").value;
             // 해당 되는 월의 첫날(month : -1 이번달 , month : 담달) 
-            
-            console.log(today.getDay());
-            console.log(new Date(year, month, 0).getDate());  
+            var today = new Date(year, month-1, 1); 
             // 마지막 날 -- month가 다음달이므로 0은 이달의 마지막날이된다.
-         
+            var lastday = new Date(year, month, 0).getDate()
+
+            var emptyTd = today.getDay();   // 해당월의 1일의 요일.
             
             var dayAry = ['일', '월', '화', '수', '목', '금', '토'];
-            var $table = document.createElement('table');
             // createElement('table') = <table></table> 테이블을 태그를 생성한다
+            var $table = document.createElement('table');
             $table.setAttribute('border', '1');
             var $tr = document.createElement('tr'); // tr태그를 생성
 
@@ -36,16 +38,16 @@
                 $th.appendChild($text); // <th>일</th>
                 $tr.appendChild($th);   // = <tr><th>일</th><th>월</th>....</tr>
             }
-            $table.appendChild($tr);
             // --> <table><tr><th>일</th></tr>....</table>
+            $table.appendChild($tr);
             $tr = document.createElement('tr');
-            emptyTd = 1;
+          
             for(var i =0; i< emptyTd; i++) {
                 var $td = document.createElement('td');
                 $td.appendChild(document.createTextNode(' '));
                 $tr.appendChild($td);
             }
-            for (var i = 0; i < 30; i++) {
+            for (var i = 0; i < lastday; i++) {
                 var $text = document.createTextNode(i + 1);
                 var $td = document.createElement('td');
                 $td.appendChild($text);

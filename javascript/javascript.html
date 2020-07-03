@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>javascript/javascript.html</title>
-    <script src = "func1.js"></script>
+    <script src = "func2.js"></script>
 </head>
 <body>
     <!-- <p id = 'show';></p> -->
     <p class='show'></p>
     <p class='show'></p>
     <p id="show"></p>
-    <button onclick="sum(10,5)">Click</button>
+    <!-- <button onclick="sum(10,5)">Click</button>
     <button onclick="mysum()">mySum</button>
-    <button onclick="arrayTest()">aryTest</button>
-    <button onclick="funcTest()">funcTest</button>
+    <button onclick="arrayTest()">aryTest</button> -->
+    <button onclick="fun2('world')">funcTest</button>
     <script>
         console.log(document.getElementsByClassName("show"));
         var cols = document.getElementsByClassName("show");
@@ -24,21 +24,22 @@
 
         // funcTest();
 
-        var x = 10;
-        let y = 10;
-        function getXvalue() {
-            x = 20; // 결과 var x = 20; --> x1:20,x2:10 , x = 20; --> x1:20,x2:20
-            y = 20;
-            // console.log('x1 : ' + x);
-            console.log('y1 : ' + y);
-        }
-        getXvalue();
-        var x = 10;
-        // let y = 10; 
-        // --> var는 중복선언이 되도 에러X let은 중복선언시 에러
+        // var x = 10;
+        // let y = 10;
+        // function getXvalue() {
+        //     x = 20; // 결과 var x = 20; --> x1:20,x2:10 , x = 20; --> x1:20,x2:20
+        //     y = 20;
+        //     // console.log('x1 : ' + x);
+        //     console.log('y1 : ' + y);
+        // }
+        // getXvalue();
+        // var x = 10;
+        // // let y = 10; 
+        // // --> var는 중복선언이 되도 에러X let은 중복선언시 에러
 
-        // console.log('x2 : ' + x);
-        console.log('y2 : ' + y);
+        // // console.log('x2 : ' + x);
+        // console.log('y2 : ' + y);
     </script>
+    <script src="func2.js"></script>
 </body>
 </html>

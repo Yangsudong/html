@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript/object1.html</title>
+</head>
+<body>
+    <script>
+        var person = {
+            // name,age,height : 속성   eat:메소드(기능)
+            name : "Hong",
+            age: 20,
+            height: 170,
+            eat: function() {
+                console.log("eat");
+            }
+        };
+        var person1 = {
+            // name,age,height : 속성   eat:메소드(기능)
+            name : "Kim",
+            age: 24,
+            height: 165,
+            eat: function() {
+                console.log("eat");
+            }
+        };
+        var persons = [person,person1];
+
+        var nm = "name";
+        person.name = "Hwang"; // 속성값 교체
+        console.log(persons);
+        for(i=0; i<persons.length; i++) {
+            document.write("<p>" + persons[i].name + "</p>");
+            document.write("<p>" +persons[i].age + "</p>");
+            document.write("<p>" +persons[i]["height"] + "</p>");
+        }
+
+        var strAry =[];
+        strAry.push("Hong");
+        strAry.push("Hwang");
+        strAry[strAry.length] = "Park";
+        for(var i=0; i<strAry.length; i++) {
+            document.write("<p>" + strAry[i] + "</p>");
+        }
+
+        strAry.pop();   // pop : 제일마지막에 위치한걸 지움
+        delete strAry[0];   // 제일 첫번째 값을 지움
+        console.log("--------------");
+        for(var i=0; i<strAry.length; i++) {
+            // undefinned를 없애기 위한 if문
+            if(strAry[i] == undefined) {
+                continue;
+            }
+            console.log(strAry[i]);
+        }
+        strAry.unshift("Kwack");
+        strAry.unshift("Kim");
+        console.log("--------------");
+        for(var i=0; i<strAry.length; i++) {
+            // undefinned를 없애기 위한 if문
+            if(strAry[i] == undefined) {
+                continue;
+            }
+            console.log(strAry[i]);
+        }
+
+        strAry.shift();
+        console.log("--------------");
+        for(var i=0; i<strAry.length; i++) {
+            // undefinned를 없애기 위한 if문
+            if(strAry[i] == undefined) {
+                continue;
+            }
+            console.log(strAry[i]);
+        }
+    </script>
+</body>
+</html>

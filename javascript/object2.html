@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript/object2.html</title>
+</head>
+<body>
+    <script>
+        for(var i=0; i<10; i++) {
+            document.write("<p class='col'>" + i + "</p>");
+        }
+
+        var elmtAry = document.getElementsByClassName("col");
+        // console.log(elmAry);
+        var newAry = [];
+        for(var i=0; i<elmtAry.length; i++) {
+            // console.log(elmtAry[i].innerHTML);
+            newAry.push(elmtAry[i].innerHTML);
+        }
+
+        var sliceAry = newAry.splice(5);
+        // console.log(sliceAry);
+
+        var sliceAry1 = newAry.splice(0,3);
+
+        var totalSlice = sliceAry.concat(sliceAry1);    //splice로 자른 배열을 concat으로 연결
+        // console.log(totalSlice);
+
+        var sum = 0; 
+        //a,b,c = (배열요소, index값, 배열 값)
+        document.write("<ul>");
+        totalSlice.forEach(callbackFunc);
+        document.write("</ul>");
+        // document.write(sum);
+
+        function callbackFunc(a, b, c) {
+            console.log(a,b);
+            // sum = sum + parseInt(a);
+            document.write("<li> lindex : " + b + ", value: " + a +"</li>");
+        }
+        var callbackFunc = function(a, b, c) {  
+            console.log(a, b); 
+            sum = sum + parseInt(a);
+        }
+
+    </script>
+</body>
+</html>
