@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript/event1.html</title>
+    <script>
+        function showCurrentTime() {
+            document.getElementById("show").innerHTML = Date();
+        }       
+    </script>
+</head>
+
+<body>
+    ID:<input type="text" id="eid" value="15">
+    FName:<input type="text" id="first_name">
+    LName:<input type="text" id="last_name">
+    <button id="btn">Click</button>
+    <p id="show"></p>
+    <script> 
+        var btn = document.getElementById('btn');
+        console.log(btn);
+        btn.onclick = function() {
+            var inputs = document.getElementsByTagName('input');
+            var $tr = document.createElement('tr');
+            for ( var i=0; i<inputs.length; i++) {
+                var $td = document.createElement('td');
+                var $text = document.createTextNode(inputs[i].value);
+                $td.appendChild($text);
+                $tr.appendChild($td);
+            }        
+
+        var jsonData = [{ "id": 1, "first_name": "Sophronia", "last_name": "Lyard", "email": "slyard0@statcounter.com", "gender": "Female" },
+        { "id": 11, "first_name": "Lexis", "last_name": "Mushet", "email": "lmusheta@usa.gov", "gender": "Female" },
+        { "id": 12, "first_name": "Ezechiel", "last_name": "Leavry", "email": "eleavryb@businessweek.com", "gender": "Male" },
+        { "id": 13, "first_name": "Lian", "last_name": "Sammon", "email": "lsammonc@businessinsider.com", "gender": "Female" },
+        { "id": 14, "first_name": "Richmond", "last_name": "Yonnie", "email": "ryonnied@discuz.net", "gender": "Male" },
+        { "id": 15, "first_name": "Cecil", "last_name": "Nusche", "email": "cnuschee@vimeo.com", "gender": "Male" }]
+        console.log(jsonData);
+
+        var titles = ["id", "first_name", "last_name"];
+
+        var $table = document.createElement("table");
+        $table.setAttribute("border", "1");
+        $table.setAttribute("id", "tbl");
+        var $tr = document.createElement("tr");
+        for (field of titles) {
+            var $th = document.createElement("th");
+            var $text = document.createTextNode(field.replace("_", "").toUpperCase());
+            $th.appendChild($text);
+            $tr.appendChild($th);
+        }
+        $table.appendChild($tr);
+        jsonData.forEach(function (o, i, a) {
+            var $tr = document.createElement("tr");
+            for (field of titles) {
+                var $td = document.createElement("td");
+                var $text = document.createTextNode(o[field]); // o.id, o.first_name
+                $td.appendChild($text);
+                $tr.appendChild($td);
+            }
+            btnFunc();
+        });
+        var $td = document.createElement("td");
+            var $button = document.createElement("button");
+            $button.innerHTML = "Click";
+            $button.onmouseover = function () {
+                this.parentNode.parentNode.style.background = "yellow";
+            }
+            $button.onmouseout = function () {
+                this.parentNode.parentNode.style.background = "";
+            }
+            $button.onclick = function () {
+                this.parentNode.parentNode.remove();
+            }
+            $td.appendChild($button);
+            $tr.appendChild($td);
+            $table.appendChild($tr);
+
+        var show = document.getElementById("show");
+
+        show.appendChild($table);
+
+    </script>
+</body>
+
+</html>
