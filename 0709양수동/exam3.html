@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>exam3.html</title>
+</head>
+
+<body>
+    <div id="div1">
+        <p>홍길동</p>
+        <p class="name">홍길동1</p>
+        <p class="name">홍길동2</p>
+    </div>
+    <p class="name">홍길동3</p>
+
+    <script>
+        var ptags = document.querySelectorAll("#div1 > name");
+        console.log(ptags);
+        ptags.forEach(function(a) {
+            parent.removeChild(a);
+        })
+
+    </script>
+</body>
+
+</html>
