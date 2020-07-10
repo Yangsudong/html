@@ -14,10 +14,9 @@
     <p class="name">홍길동3</p>
 
     <script>
-        var ptags = document.querySelectorAll("#div1 > name");
-        console.log(ptags);
+        var ptags = document.querySelectorAll("#div1 > .name");
         ptags.forEach(function(a) {
-            parent.removeChild(a);
+           console.log(a);
         })
 
     </script>

@@ -16,11 +16,11 @@
         var para = document.createElement("p");
         var node = document.createTextNode("This is new.");
         //   para.appendChild(node);
-        var ptags = document.querySelectorAll("#div1 > p3");
-        console.log(ptags);
+        var ptags = document.querySelectorAll("#div1 > p");
         ptags.forEach(function(a) {
-            parent.removeChild(a);
+            // parent.removeChild(a);
             // a.remove();
+            console.log(a);
         })
 
     </script>
