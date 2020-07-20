@@ -4,6 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jquery/ajax.html</title>
+    <style>
+		table {
+			border-collapse: collapse;
+			width: 80%;
+		}
+		td,
+		th {
+			border: 1px solid #dddddd;
+			text-align: left;
+			padding: 5px;
+		}
+		th {
+			background-color: green;
+		}
+		tr:nth-child(odd) {
+			background-color: #dddddd;
+		}
+	</style>
     <script src="jquery-3.5.1.min.js"></script>
     <script>
         $(document).ready(function() {
@@ -25,8 +43,8 @@
                 $tr.append($('<th />').text('ID'),
                 $('<th />').text('FName'),
                 $('<th />').text('LName'),
-                $('<th />').text('Gender'),
-                $('<th />').text('Email')                
+                $('<th />').text('Email'),
+                $('<th />').text('Gender')                
             );
             $table.append($tr);
                   
@@ -48,7 +66,7 @@
             $('#show').append($table);
         }
         function mouseenterFunc() {
-            $(this).css('background','lightgray');
+            $(this).css('background','lightyellow');
         }
         function mouseleaveFunc() {
             $(this).css('background','');

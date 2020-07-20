@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.5.1.min.js"> </script>
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: "emp.xml",
+                success: function (result) {
+                    var datas = $(result).find("record");
+                    console.log(datas);
+                    // datas.each(function (a, b, c) {                        
+                    //     console.log($(datas[a]).children().eq(2).text());
+                    // });
+                    var $table = $('<table />').attr({ 'border': '1', 'id': 'tb1' });
+                    var $tr = $('<tr />');
+                    $tr.append($('<th />').text('사원번호'),
+                        $('<th />').text('사원이름'),
+                        $('<th />').text('회사명'),
+                        $('<th />').text('부서명'),
+                        $('<th />').text('직무정보')
+                    );
+                    $table.append($tr);
+
+                    var $tr = $('<tr />');               
+
+                        for (var i = 0; i < datas.length; i++) {
+					        $tr += "<tr><td>" + $(datas[i]).children().eq(0).text()
+					     + "</td><td>" + $(datas[i]).children().eq(1).text() 
+                         + "</td><td>" + $(datas[i]).children().eq(2).text()
+                         + "</td><td>" + $(datas[i]).children().eq(3).text()   
+					     + "</td><td>" + $(datas[i]).children().eq(4).text() 					     
+					     + "</td></tr>";
+				        }
+
+                        $table.append($tr);
+                  
+                    $('#show').append($table);            
+
+                }
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+    <p id="show"></p>
+</body>
+
+</html>
